@@ -1,9 +1,17 @@
 {
   "name": "wetube",
   "version": "1.0.0",
-  "description": "Cloning Youtube with Vanilla and NodeJS",
+  "description": "Cloning Youtube with Vanilla and NodeJs",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gooreumgil/wetube.git"
+  },
   "author": "Gwan Seok",
+  "bugs": {
+    "url": "https://github.com/gooreumgil/wetube/issues"
+  },
+  "homepage": "https://github.com/gooreumgil/wetube#readme",
   "dependencies": {
     "express": "^4.16.4"
   }
