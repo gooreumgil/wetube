@@ -1,14 +1,13 @@
 import mongoose from 'mongoose';
-import { stringLiteral } from 'babel-types';
 
-const videoSchema = new mongoose.Schema({
+const VideoSchema = new mongoose.Schema({
   fileUrl: {
     type: String,
-    required: 'File URL is required'
+    required: "File URL is required"
   },
   title: {
     type: String,
-    required: 'Title is required'
+    required: "Tilte is required"
   },
   description: String,
   views: {
@@ -19,12 +18,14 @@ const videoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  comments: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Comment'
-  }]
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment"
+    }
+  ]
 });
 
-const model = mongoose.model('video', videoSchema);
+const model = mongoose.model('Video', VideoSchema);
 
 export default model;
