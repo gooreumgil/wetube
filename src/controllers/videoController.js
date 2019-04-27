@@ -106,13 +106,15 @@ export const deleteVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    if (video.creator !== req.user.id) {
+    if (!video.creator.equals(req.user.id)) {
       throw Error();
     } else {
       await Video.findOneAndRemove({ _id: id });
     }
-  } catch (error) {}
-  res.redirect(routes.home);
+    res.redirect(routes.home);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 // Register Video View
