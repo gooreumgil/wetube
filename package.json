@@ -1,9 +1,15 @@
 {
   "name": "wetube",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.x",
+    "yarn": "1.x"
+  },
   "description": "Cloning Youtube with Vanilla and NodeJs",
   "author": "Gwan Seok",
   "dependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.4.3",
@@ -11,6 +17,7 @@
     "autoprefixer": "^9.5.1",
     "aws-sdk": "^2.442.0",
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.5",
     "body-parser": "^1.18.3",
     "connect-mongo": "^2.0.3",
@@ -48,7 +55,8 @@
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
     "tunnel": "lt --port 5000",
-    "start": "node build/init.js"
+    "start": "PRODUCTION=true babel-node build/init.js",
+    "prestart": "npm run build"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
